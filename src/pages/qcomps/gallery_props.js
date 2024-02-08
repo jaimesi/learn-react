@@ -1,55 +1,56 @@
+import React from 'react';
+
+function Profile(props) {
+  return (
+      <section className="profile">
+        <h2>{props.name}</h2>
+        <img
+            className="avatar"
+            src={props.imageUrl}
+            alt={props.name}
+            width={props.imageWidth}
+            height={props.imageHeight}
+        />
+        <ul>
+          <li>
+            <b>Profession: </b>
+            {props.profession}
+          </li>
+          <li>
+            <b>Awards: {props.awards.length} </b>
+            ({props.awards.join(', ')})
+          </li>
+          <li>
+            <b>Discovered: </b>
+            {props.discovery}
+          </li>
+        </ul>
+      </section>
+  );
+}
+
 export default function Gallery() {
   return (
-    <div>
-      <h1>Notable Scientists</h1>
-      <section className="profile">
-        <h2>Maria Skłodowska-Curie</h2>
-        <img
-          className="avatar"
-          src='https://i.imgur.com/szV5sdGs.jpg'
-          alt="Maria Skłodowska-Curie"
-          width={70}
-          height={70}
+      <div>
+        <h1>Notable Scientists</h1>
+        <Profile
+            name="Maria Skłodowska-Curie"
+            imageUrl="https://i.imgur.com/szV5sdGs.jpg"
+            imageWidth={70}
+            imageHeight={70}
+            profession="physicist and chemist"
+            awards={['Nobel Prize in Physics', 'Nobel Prize in Chemistry', 'Davy Medal', 'Matteucci Medal']}
+            discovery="polonium (element)"
         />
-        <ul>
-          <li>
-            <b>Profession: </b>
-            physicist and chemist
-          </li>
-          <li>
-            <b>Awards: 4 </b>
-            (Nobel Prize in Physics, Nobel Prize in Chemistry, Davy Medal, Matteucci Medal)
-          </li>
-          <li>
-            <b>Discovered: </b>
-            polonium (element)
-          </li>
-        </ul>
-      </section>
-      <section className="profile">
-        <h2>Katsuko Saruhashi</h2>
-        <img
-          className="avatar"
-          src='https://i.imgur.com/YfeOqp2s.jpg'
-          alt="Katsuko Saruhashi"
-          width={70}
-          height={70}
+        <Profile
+            name="Katsuko Saruhashi"
+            imageUrl="https://i.imgur.com/YfeOqp2s.jpg"
+            imageWidth={70}
+            imageHeight={70}
+            profession="geochemist"
+            awards={['Miyake Prize for geochemistry', 'Tanaka Prize']}
+            discovery="a method for measuring carbon dioxide in seawater"
         />
-        <ul>
-          <li>
-            <b>Profession: </b>
-            geochemist
-          </li>
-          <li>
-            <b>Awards: 2 </b>
-            (Miyake Prize for geochemistry, Tanaka Prize)
-          </li>
-          <li>
-            <b>Discovered: </b>
-            a method for measuring carbon dioxide in seawater
-          </li>
-        </ul>
-      </section>
-    </div>
+      </div>
   );
 }
