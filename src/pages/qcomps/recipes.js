@@ -14,9 +14,17 @@ export const recipes = [{
 
 export default function RecipeList() {
   return (
-    <div>
-      <h1>Recipes</h1>
-      {}
-    </div>
+      <div>
+        {recipes.map(recipe => (
+            <div key={recipe.id}>
+              <h2>{recipe.name}</h2>
+              <ul>
+                {Array.from(recipe.ingredients).map(ingredient => (
+                    <li key={ingredient}>{ingredient}</li>
+                ))}
+              </ul>
+            </div>
+        ))}
+      </div>
   );
 }
